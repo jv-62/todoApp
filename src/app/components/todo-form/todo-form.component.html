@@ -1,6 +1,18 @@
-<div class="input-group mb-3 w-100">
-  <input type="text" name="todo" [(ngModel)]="todoTitle" placeholder="Enter a todo" class="form-control">
-  <div class="input-group-append">
-    <button class="btn btn-primary" (click)="handleAdd()">Add Todo</button>
-  </div>
+<div class="todo-input-wrapper mb-2 w-100">
+  <input
+    type="text"
+    name="todo"
+    [(ngModel)]="todoTitle"
+    placeholder="Add a new task"
+    class="form-control todo-input"
+    required
+  />
+  <button
+    class="btn btn-primary todo-add-btn"
+    (click)="handleAdd()"
+    [disabled]="!todoTitle?.trim()"
+  >
+    <i class="fas fa-plus mr-2"></i>
+    Add Task
+  </button>
 </div>

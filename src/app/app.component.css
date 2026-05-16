@@ -1,0 +1,73 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-shell {
+  flex: 1;
+  min-height: 0;
+}
+
+.app-shell .container {
+  min-height: 100%;
+  height: 100%;
+}
+
+.app-shell .row {
+  min-height: 100%;
+}
+
+.hero-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.todo-panel {
+  border: none;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.todo-panel .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.todo-panel .card-body > app-todos {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.todo-panel .card-body > app-todos {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.todo-panel .card-body > app-todos {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+body,
+html {
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .hero-card,
+  .todo-panel {
+    box-shadow: none;
+  }
+}

@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Todo } from 'src/app/model/todo';
-import { TodoService } from 'src/app/service/todo.service';
-import { v4 as uuidv4 } from 'uuid';
+import {Component,OnInit} from '@angular/core';
+import {Todo} from 'src/app/model/todo';
+import {TodoService} from 'src/app/service/todo.service';
+import {v4 as uuidv4} from 'uuid';
 
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
-  styleUrls: ['./todo-form.component.css']
+  styleUrls: ['./todo-form.component.css'],
 })
 export class TodoFormComponent implements OnInit {
-
   todoTitle: string;
 
   constructor(private todoService: TodoService) {}
@@ -17,9 +16,14 @@ export class TodoFormComponent implements OnInit {
   ngOnInit(): void {}
 
   handleAdd() {
+    const title = this.todoTitle?.trim();
+    if (!title) {
+      return;
+    }
+
     const newTodo: Todo = {
       id: uuidv4(),
-      title: this.todoTitle,
+      title,
       date: new Date(),
       isCompleted: false,
     };

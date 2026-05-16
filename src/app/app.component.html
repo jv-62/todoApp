@@ -1,16 +1,36 @@
 <ng-container>
   <app-header></app-header>
 
-  <div class="container m-3">
-    <div class="row">
-      <div class="col-md-6 mt-4">
-        <img src="assets/todo.png" width="500" alt="todo image">
-      </div>
-      <div class="col-md-6 mt-5">
-        <app-todo-form></app-todo-form>
-        <app-todos></app-todos>
+  <main class="app-shell">
+    <div class="container h-100 py-4">
+      <div class="row justify-content-center align-items-stretch h-100">
+        <div class="col-lg-6 mb-4 d-flex h-100">
+          <div
+            class="hero-card p-4 rounded shadow-sm bg-white text-dark w-100 h-100"
+          >
+            <h1 class="display-5 mb-3">Todo Manager</h1>
+            <p class="lead text-secondary">
+              Build your task list, finish items with one click, and keep your
+              day organized.
+            </p>
+            <img
+              src="assets/todo.png"
+              class="img-fluid rounded mt-3"
+              alt="todo illustration"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4 d-flex h-100">
+          <div class="todo-panel card shadow-sm w-100 h-100">
+            <div class="card-body d-flex flex-column h-100">
+              <app-todo-form></app-todo-form>
+              <app-todos></app-todos>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
+
   <app-footer></app-footer>
 </ng-container>

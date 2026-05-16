@@ -1,0 +1,21 @@
+.header-bar {
+  background: linear-gradient(135deg, #2a9d8f 0%, #1b6e69 100%);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-brand {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.navbar-text {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+  .navbar-text {
+    display: none;
+  }
+}

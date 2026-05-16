@@ -1,4 +1,86 @@
-.completedTodo {
-  color: darkgray;
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.todo-list {
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.todo-list .list-group {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.todo-list .list-group .todo-item {
+  min-width: max-content;
+}
+
+.todo-title,
+.todo-date {
+  white-space: nowrap;
+}
+
+.todo-item {
+  transition: background-color 0.3s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.todo-item:not(.completed):hover {
+  background-color: #f8f9fa;
+}
+
+.todo-item.completed {
+  background-color: rgba(40, 167, 69, 0.08);
+  transform: translateX(6px);
+  animation: completed-pulse 0.45s ease;
+}
+
+.todo-item.completed .todo-title {
+  color: #6c757d;
   text-decoration: line-through;
+}
+
+.todo-item.completed .todo-date {
+  color: #adb5bd;
+}
+
+.todo-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-title {
+  font-weight: 600;
+}
+
+.delete-icon {
+  color: #dc3545;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-icon:hover {
+  color: #bd2130;
+  transform: scale(1.05);
+}
+
+@keyframes completed-pulse {
+  0% {
+    box-shadow: 0 0 0 rgba(40, 167, 69, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(40, 167, 69, 0.18);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(40, 167, 69, 0);
+  }
 }

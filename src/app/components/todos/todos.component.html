@@ -1,18 +1,46 @@
-<ul class="list-group w-100">
-  <li class="list-group-item d-flex justify-content-between w-100" *ngFor="let todo of  todos">
-    <span>
-      <input type="checkbox" (change)="changeTodoStatus(todo)" [checked]="todo.isCompleted" />
-    </span>
-    <span [ngClass]="{ completedTodo: todo.isCompleted }">
-      {{todo.title | uppercase}}
-    </span>
-    <span [ngClass]="{ completedTodo: todo.isCompleted }">
-      {{todo.date | date}}
-    </span>
-    <span>
-      <!-- <fa-icon (click)="deleteTodo(todo)" [icon]="faTrashAlt"></fa-icon> -->
-      <i (click)="deleteTodo(todo)" class="fas fa-trash"></i>
+<div class="todo-list card mt-4">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <div>
+      <h5 class="mb-0">My Todos</h5>
+      <small class="text-muted">Tap the checkbox to complete an item.</small>
+    </div>
+    <span class="badge badge-secondary badge-pill">{{
+      todos?.length || 0
+    }}</span>
+  </div>
 
-    </span>
-  </li>
-</ul>
+  <ul class="list-group list-group-flush">
+    <li
+      class="list-group-item todo-item d-flex align-items-center justify-content-between"
+      *ngFor="let todo of todos"
+      [class.completed]="todo.isCompleted"
+    >
+      <div class="d-flex align-items-center">
+        <input
+          type="checkbox"
+          class="mr-3"
+          (change)="changeTodoStatus(todo)"
+          [checked]="todo.isCompleted"
+        />
+        <div class="todo-content">
+          <div class="todo-title">{{ todo.title }}</div>
+          <div class="todo-date text-muted">
+            {{ todo.date | date: "MMM d, y" }}
+          </div>
+        </div>
+      </div>
+      <i
+        class="fas fa-trash delete-icon"
+        title="Remove todo"
+        (click)="deleteTodo(todo)"
+      ></i>
+    </li>
+
+    <li
+      class="list-group-item text-center text-muted"
+      *ngIf="todos?.length === 0"
+    >
+      No todos yet. Add one to get started.
+    </li>
+  </ul>
+</div>
